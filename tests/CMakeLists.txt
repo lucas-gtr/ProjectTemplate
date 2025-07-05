@@ -1,7 +1,8 @@
 add_executable(UnitTests main_tests.cpp)
 
-target_sources(UnitTests PRIVATE     
-)
+file(GLOB TEST_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*Tests.cpp")
+
+target_sources(UnitTests PRIVATE ${TEST_SOURCES})
 
 set(TEST_COVERAGE_FLAGS --coverage -O0 -g)
 
@@ -9,7 +10,9 @@ target_compile_options(UnitTests PRIVATE ${TEST_COVERAGE_FLAGS})
 target_link_options(UnitTests PRIVATE ${TEST_COVERAGE_FLAGS})
 
 target_link_libraries(UnitTests PRIVATE 
+    ModuleExample
     gtest
+    gtest_main
     gmock
 )
 

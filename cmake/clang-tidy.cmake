@@ -13,9 +13,11 @@ function(run_clang_tidy FIX_LINT)
     set(CLANG_TIDY_TARGET_FILES)
 
     if(FILES_TO_CHECK STREQUAL "")
-        file(GLOB_RECURSE all_cpp_files "${CMAKE_SOURCE_DIR}/src/*.cpp")
-        list(FILTER all_cpp_files EXCLUDE REGEX ".*/main.cpp$")
-        set(CLANG_TIDY_TARGET_FILES ${all_cpp_files})
+        file(GLOB_RECURSE src_cpp_files "${CMAKE_SOURCE_DIR}/src/*.cpp")
+        list(FILTER src_cpp_files EXCLUDE REGEX ".*/main.cpp$")
+        list(APPEND CLANG_TIDY_TARGET_FILES
+          ${src_cpp_files}
+      )
     else()
         separate_arguments(FILES_TO_CHECK)
         foreach(file IN LISTS FILES_TO_CHECK)
@@ -43,7 +45,7 @@ function(run_clang_tidy FIX_LINT)
         return()
     endif()
 
-    string(JOIN " " CLANG_TIDY_FILE_ARGS ${CLANG_TIDY_TARGET_FILES})
+    string(JOIN ";" CLANG_TIDY_FILE_ARGS ${CLANG_TIDY_TARGET_FILES})
 
     set(CLANG_TIDY_ARGS
         --config-file=${CMAKE_SOURCE_DIR}/cmake/.clang-tidy
