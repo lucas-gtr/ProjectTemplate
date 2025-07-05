@@ -93,6 +93,8 @@ endif()
 if(ENABLE_UNIT_TESTS)
     enable_testing()
 
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -O0 -g" CACHE STRING "Compiler flags for tests" FORCE)
+
     add_subdirectory(external/googletest)
     add_subdirectory(tests)
 endif()
