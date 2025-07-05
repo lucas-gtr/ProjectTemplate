@@ -1,9 +1,10 @@
 #include <chrono>
 #include <iostream>
 
+#include "ModuleExample/Example.hpp"
 #include "SanitizerTests.hpp"
 
-void test_optimization() {
+void testOptimization() {
   constexpr size_t iterations = 1'000'000'000;
 
   auto start = std::chrono::high_resolution_clock::now();
@@ -25,7 +26,17 @@ int main(int argc, char* argv[]) {
   // testUndefinedBehaviorSanitizer();
   // testLeakSanitizer();
   // testSignedIntegerOverflow();
-  testFloatDivideByZero();
+  // testFloatDivideByZero();
+  // testOptimization();
+
+  Example calculator;
+
+  int a = 5;
+  int b = 10;
+
+  int result = calculator.add(a, b);
+
+  std::cout << "Result of addition: " << result << std::endl;
 
   return 0;
 }
