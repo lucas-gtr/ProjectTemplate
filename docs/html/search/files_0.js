@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sanitizertests_2ecpp_0',['SanitizerTests.cpp',['../SanitizerTests_8cpp.html',1,'']]],
-  ['sanitizertests_2ehpp_1',['SanitizerTests.hpp',['../SanitizerTests_8hpp.html',1,'']]]
+  ['example_2ecpp_0',['Example.cpp',['../Example_8cpp.html',1,'']]],
+  ['example_2ehpp_1',['Example.hpp',['../Example_8hpp.html',1,'']]]
 ];
