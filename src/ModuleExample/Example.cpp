@@ -1,3 +1,3 @@
 #include "ModuleExample/Example.hpp"
 
-int Example::add(int a, int b) { return a + b; }
+int Example::Add(int a, int b) { return a + b; }
