@@ -44,11 +44,6 @@ option(ENABLE_DOXYGEN              "Build documentation with Doxygen"           
 option(ENABLE_OPTIMIZATIONS        "Enable high-performance compile flags"       OFF)
 option(ENABLE_UNIT_TESTS           "Enable tests with GoogleTest"                OFF)
 
-target_include_directories(${PROJECT_TARGET_NAME}
-    PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
-)
-
 set(FILES_TO_CHECK "" CACHE STRING "Files to check with Clang-Tidy and Clang-Format. Set to 'all' to check all source files.")
 
 if(ENABLE_OPTIMIZATIONS AND CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
