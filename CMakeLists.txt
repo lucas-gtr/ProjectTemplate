@@ -49,7 +49,7 @@ if(ENABLE_OPTIMIZATIONS AND CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(${PROJECT_TARGET_NAME} PRIVATE /O2)
 endif()
 
-if(ENABLE_COMPILE_WARNINGS)
+if(ENABLE_WARNINGS)
     include(warnings)
     target_enable_warnings(${PROJECT_TARGET_NAME})
 endif()
