@@ -15,22 +15,19 @@ BUILD_DIR ?= build-$(BUILD_TYPE)
 SRC_DIR := src
 INCLUDE_DIR := include
 
-
 EXECUTABLE_NAME ?= Template
 TEST_EXECUTABLE_NAME ?= UnitTests
 
-# External tools (check availability at runtime)
 CMAKE := $(shell command -v cmake 2>/dev/null)
 CLANG_FORMAT := $(shell command -v clang-format 2>/dev/null)
 CLANG_TIDY := $(shell command -v clang-tidy 2>/dev/null)
 GCOVR := $(shell command -v gcovr 2>/dev/null)
 
-# Build flags (can be extended or overridden)
+# Build flags
 RELEASE_FLAGS := -DENABLE_WARNINGS=ON -DENABLE_SANITIZERS=OFF -DENABLE_LTO=ON -DENABLE_OPTIMIZATIONS=ON
 DEBUG_FLAGS := -DENABLE_WARNINGS=ON -DENABLE_SANITIZERS=ON -DENABLE_LTO=OFF -DENABLE_OPTIMIZATIONS=OFF
 TEST_FLAGS := $(DEBUG_FLAGS) -DENABLE_UNIT_TESTS=ON
 
-# Internal variables
 CMAKE_FLAGS ?= $(RELEASE_FLAGS)
 
 # Files to format and lint

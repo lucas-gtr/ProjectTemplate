@@ -8,14 +8,12 @@ project(${PROJECT_TARGET_NAME}
     LANGUAGES C CXX
 )
 
-# Modern C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Allow user-defined modules 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 add_subdirectory(src/ModuleExample)
@@ -33,7 +31,6 @@ target_link_libraries(${PROJECT_TARGET_NAME}
         ModuleExample
 )
 
-# Options for professional dev workflow
 option(ENABLE_WARNINGS             "Enable compiler warnings"                    ON)
 option(ENABLE_SANITIZERS           "Enable runtime sanitizers"                   OFF)
 option(ENABLE_LTO                  "Enable link-time optimization"               OFF)
@@ -43,8 +40,6 @@ option(ENABLE_FIX_CLANG_TIDY       "Run clang-tidy with --fix option"           
 option(ENABLE_DOXYGEN              "Build documentation with Doxygen"            OFF)
 option(ENABLE_OPTIMIZATIONS        "Enable high-performance compile flags"       OFF)
 option(ENABLE_UNIT_TESTS           "Enable tests with GoogleTest"                OFF)
-
-set(FILES_TO_CHECK "" CACHE STRING "Files to check with Clang-Tidy and Clang-Format. Set to 'all' to check all source files.")
 
 if(ENABLE_OPTIMIZATIONS AND CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
     target_compile_options(${PROJECT_TARGET_NAME} PRIVATE -O3 -march=native)
