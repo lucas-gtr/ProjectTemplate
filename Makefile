@@ -2,7 +2,8 @@
         configure-debug build-debug run-debug \
         configure-tests run-tests coverage \
         format lint format-and-lint \
-        generate-doc clean help
+				format-diff lint-diff format-and-lint-diff \
+        documentation clean help
 
 MAKEFLAGS += --no-print-directory
 
