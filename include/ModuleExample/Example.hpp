@@ -19,7 +19,7 @@ public:
    * @param b The second integer to add.
    * @return The sum of the two integers.
    */
-  static int add(int a, int b);
+  static int Add(int a, int b);
 };
 
 #endif // MODULEEXAMPLE_EXAMPLE_HPP
