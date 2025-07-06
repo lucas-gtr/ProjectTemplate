@@ -39,13 +39,13 @@ jobs:
           xargs -a dependencies.txt sudo apt-get install -y
 
       - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -G Ninja
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Tests -DENABLE_UNIT_TESTS=ON -G Ninja
 
       - name: Build
         run: cmake --build build --parallel
 
       - name: Run tests
-        run: ctest --test-dir build --output-on-failure
+        run: ./build/tests/UnitTests
 
   lint:
     runs-on: ubuntu-latest
