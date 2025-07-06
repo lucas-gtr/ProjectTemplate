@@ -41,7 +41,6 @@ option(ENABLE_CLANG_FORMAT         "Run clang-format in build"                  
 option(ENABLE_CLANG_TIDY           "Run clang-tidy analysis"                     OFF)
 option(ENABLE_FIX_CLANG_TIDY       "Run clang-tidy with --fix option"            OFF)
 option(ENABLE_DOXYGEN              "Build documentation with Doxygen"            OFF)
-option(ENABLE_TESTS                "Enable tests with GoogleTest"                OFF)
 option(ENABLE_OPTIMIZATIONS        "Enable high-performance compile flags"       OFF)
 option(ENABLE_UNIT_TESTS           "Enable tests with GoogleTest"                OFF)
 
